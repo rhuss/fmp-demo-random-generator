@@ -20,7 +20,7 @@ public class RandomNumberEndpoint {
     public Map getRandomNumber() {
         Map ret = new HashMap();
         ret.put("random", random.nextInt());
-        ret.put("id3", id.toString());
+        ret.put("id", id.toString());
         return ret;
     }
 }

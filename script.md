@@ -65,6 +65,14 @@ done
 * Set breakpoint in handler
 * Change object on the fly
 
+## Client
+
+* New Java project
+* Dependencies:
+
+
+
+
 ## Fragments
 
 * Add a volume
