@@ -1,4 +1,4 @@
-package com.example;
+package meetup;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
