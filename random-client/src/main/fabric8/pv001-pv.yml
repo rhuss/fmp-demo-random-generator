@@ -1,0 +1,7 @@
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20M
+  hostPath:
+    path: /data/pv001/

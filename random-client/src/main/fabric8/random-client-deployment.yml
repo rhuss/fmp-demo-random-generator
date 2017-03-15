@@ -1,0 +1,13 @@
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: java-exec
+          volumeMounts:
+          - mountPath: "/random-data"
+            name: random-data
+      volumes:
+        - name: random-data
+          persistentVolumeClaim:
+            claimName: random-data
