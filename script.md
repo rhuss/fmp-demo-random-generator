@@ -12,7 +12,7 @@
 * Open in browser
   - `open http://localhost:8080/random`
 * Show devtools by changing code
-* Add f-m-p depenency (snapshot)
+* Add f-m-p dependency (snapshot)
 * Remove cached tools & start minikube
   - `rm -rf ~/.fabric8`
   - `minikube start`
