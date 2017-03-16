@@ -36,6 +36,14 @@
   - `kubectl describe svc random-generator`
   - `open http://$(minikube ip):32156/random`
 
+## Debug
+
+* Run
+  - `mvn clean package fabric8:resource fabric8:build fabric8:debug`
+* Connect via IDE
+* Set breakpoint in handler
+* Change object on the fly
+
 ## Watch
 
 * Setup `exposecontroller`
@@ -57,13 +65,6 @@ do
 done
 ```
 
-## Debug
-
-* Run
-  - `mvn clean package fabric8:resource fabric8:build fabric8:debug`
-* Connect via IDE
-* Set breakpoint in handler
-* Change object on the fly
 
 ## Client
 
