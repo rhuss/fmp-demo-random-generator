@@ -68,12 +68,52 @@ done
 ## Client
 
 * New Java project
-* Dependencies:
+* Dependency: json-simple
+* Configuration: Exclude enricher "fmp-service"
 
+## Fragments:
 
+* pv001-pv.yml
 
+```
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20M
+  hostPath:
+    path: /data/pv001/
+```
 
-## Fragments
+* random-client-deployment.yml
+
+```
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: java-exec
+          volumeMounts:
+          - mountPath: "/random-data"
+            name: random-data
+      volumes:
+        - name: random-data
+          persistentVolumeClaim:
+            claimName: random-data
+```
+
+* random-data-pvc.yml
+
+```
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10M
+```
+
 
 * Add a volume
 
@@ -83,6 +123,3 @@ done
 ```
 open http://$(minikube ip):$(kubectl get svc random-generator -o jsonpath='{.spec.ports[*].nodePort}')/random
 ```
-
-
-## Fragments
