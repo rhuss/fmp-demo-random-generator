@@ -1,40 +1,40 @@
 ## Zero-Config
 
-* Create Spring-Boot starter at https://start.spring.io/
-  - meetup
-  - random-generator
-  - actuator, web, devtools
+* Create Spring-Boot starter at `https://start.spring.io/`
+  * meetup
+  * random-generator
+  * actuator, web, devtools
 * Create RandomNumberEndpoint
-  - `@RestController`
-  - `@RequestMapping` (produces = "application/json")
+  * `@RestController`
+  * `@RequestMapping` (produces = "application/json")
 * Run locally
-  - `mvn spring-boot:run`
+  * `mvn spring-boot:run`
 * Open in browser
-  - `open http://localhost:8080/random`
+  * `open http://localhost:8080/random`
 * Show devtools by changing code
 * Add f-m-p dependency (snapshot)
 * Remove cached tools & start minikube
-  - `rm -rf ~/.fabric8`
-  - `minikube start`
+  * `rm -rf ~/.fabric8`
+  * `minikube start`
 * Build docker image
-  - `mvn package fabric8:build`
+  * `mvn package fabric8:build`
 * Show create Docker image
-  - `eval $(minkube docker-env)`
-  - `docker images`
+  * `eval $(minkube docker-env)`
+  * `docker images`
 * Run with docker
-  - `docker run -it -p 8181:8080 meetup/demo`
-  - `open http://$(minikube ip):8181/random`
+  * `docker run -it -p 8181:8080 meetup/demo`
+  * `open http://$(minikube ip):8181/random`
 * Create deployment descriptors
-  - `mvn fabric8:resource`
-  - Show resources in target/class/META-INF/fabric8
-  - Maybe try also with `mvn fabric8:resource -Dfabric8.profile=minimal`
+  * `mvn fabric8:resource`
+  * Show resources in target/class/META-INF/fabric8
+  * Maybe try also with `mvn fabric8:resource -Dfabric8.profile=minimal`
 * Apply them to Kubernetes
-  - `mvn fabric8:apply`
+  * `mvn fabric8:apply`
 * Show object with kubectl
 * Edit service type to NodePort
-  - `kubectl patch svc random-generator -p '{"spec":{"type":"NodePort"}}'`
-  - `kubectl describe svc random-generator`
-  - `open http://$(minikube ip):32156/random`
+  * `kubectl patch svc random-generator -p '{"spec":{"type":"NodePort"}}'`
+  * `kubectl describe svc random-generator`
+  * `open http://$(minikube ip):32156/random`
 
 ## Debug
 
