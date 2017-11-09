@@ -69,6 +69,25 @@
 
 ## Watch
 
+* Check that execution mappings are set in the pom.xml:
+
+```
+<executions>
+  <execution>
+    <goals>
+      <goal>resource</goal>
+      <goal>build</goal>
+    </goals>
+  </execution>
+</executions>
+```
+
+* Check that secret is set in application.properties:
+
+```
+spring.devtools.remote.secret=3b9c37f9-6777-4c9c-bc76-8f790752f7a6
+```
+
 * Start watch
   - `mvn fabric8:undeploy fabric8:watch`
   - Be sure the goals are bound
