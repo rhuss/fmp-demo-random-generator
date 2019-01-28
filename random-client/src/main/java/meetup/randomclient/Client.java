@@ -23,7 +23,7 @@ public class Client {
         while (true) {
             try {
                 Thread.sleep(1000);
-                URL generator = new URL("http://random-generator:8080/random");
+                URL generator = new URL("http://random-generator:8080");
                 JSONObject response =
                     (JSONObject) new JSONParser().parse(new InputStreamReader(generator.openStream()));
                 System.out.println(response.get("id") + ": " + response.get("random"));

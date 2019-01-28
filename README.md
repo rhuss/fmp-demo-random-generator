@@ -21,14 +21,14 @@
 * Set project version to non-snapshot version to avoid problems with the timestamped versioning of images for snapshots
 * Start minikube
   * `minikube start`
-  * `minikube addon enable heapster`
+  * `minikube addons enable heapster`
   * `eval $(minikube docker-env)`
 * Build docker image
   * `mvn package fabric8:build`
 * Show create Docker image
   * `docker images`
 * Run with docker
-  * `docker run -it -p 8181:8080 demo/random-generator`
+  * `docker run -it -p 8181:8080 demo/random-generator:1.0.0`
   * `open http://$(minikube ip):8181/`
 * Create deployment descriptors
   * `mvn fabric8:resource`
@@ -58,8 +58,8 @@
 * Edit service type to NodePort
   * `kubectl patch svc random-generator -p '{"spec":{"type":"NodePort"}}'`
   * `kubectl describe svc random-generator`
-  * `open http://$(minikube service --url random-generator):32156/random`
-  * `curl -s $(minikube service --url random-generator)/random | jq .`
+  * `open $(minikube service --url random-generator)`
+  * `curl -s $(minikube service --url random-generator) | jq .`
 
 ## Debug
 
@@ -99,7 +99,7 @@ spring.devtools.remote.secret=3b9c37f9-6777-4c9c-bc76-8f790752f7a6
   - `kubectl scale deployment random-generator --replicas=3`
 
 ```
- watch "curl -s $(minikube service --url random-generator)/random | jq ."
+ watch "curl -s $(minikube service --url random-generator)/ | jq ."
 ```
 
 
